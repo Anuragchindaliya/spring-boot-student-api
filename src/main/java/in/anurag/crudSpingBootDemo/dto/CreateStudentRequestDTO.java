@@ -1,24 +1,24 @@
 package in.anurag.crudSpingBootDemo.dto;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.*;
 
 public class CreateStudentRequestDTO {
-    @NotBlank
+    @NotBlank(message = "Name cannot be null/Empty or blank")
+    @Size(min = 2,max=50,message = "Student name must be within 2 to 50 character long")
     private String name;
 
-    @Min(value = 18)
+    @NotNull(message = "Age is required")
+    @Min(value = 18,message = "Student must be atleast 18 years old")
     private int age;
 
-    @Email
+    @NotBlank(message = "Student email cannot be blank")
+    @Email(message = "Student Email must be valid")
     private String email;
 
-    @NotEmpty
+    @NotNull(message = "Roll No is required")
     private int rollNo;
 
-    @NotBlank
+    @NotBlank(message = "Subject is required")
     private String subject;
 
     public String getName() {

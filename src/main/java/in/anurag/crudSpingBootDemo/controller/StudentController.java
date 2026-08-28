@@ -6,6 +6,7 @@ import in.anurag.crudSpingBootDemo.dto.UpdateStudentRequestDTO;
 import in.anurag.crudSpingBootDemo.dto.UpdateStudentResponseDTO;
 import in.anurag.crudSpingBootDemo.entity.Student;
 import in.anurag.crudSpingBootDemo.service.StudentService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,18 +21,18 @@ public class StudentController {
     }
     //create student
     @PostMapping
-    public ResponseEntity<CreateStudentResponseDTO> createStudent (@RequestBody CreateStudentRequestDTO student){
+    public ResponseEntity<CreateStudentResponseDTO> createStudent (@Valid @RequestBody CreateStudentRequestDTO student){
 
         CreateStudentResponseDTO createdStudent = studentService.createStudent(student);
         return ResponseEntity.ok(createdStudent);
     }
      //read ALL student
     @GetMapping("/{id}")
-    public ResponseEntity<Student> getStudent(@PathVariable Long id){
-        Student studentResp = studentService.getStudent(id);
-        if(studentResp==null){
-            return ResponseEntity.notFound().build();
-        }
+    public ResponseEntity<CreateStudentResponseDTO> getStudent(@PathVariable Long id){
+        CreateStudentResponseDTO studentResp = studentService.getStudent(id);
+//        if(studentResp==null){
+//            return ResponseEntity.notFound().build();
+//        }
         return ResponseEntity.ok(studentResp);
     }
     @GetMapping

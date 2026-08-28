@@ -30,12 +30,12 @@ public class StudentService {
         Student savedStudent = studentRepository.save(student);
         return mapToDto(savedStudent);
     }
-    public Student getStudent(Long id){
+    public CreateStudentResponseDTO getStudent(Long id){
         Optional<Student> currentStudent = studentRepository.findByIdAndDeletedIsFalse(id);
-        if(currentStudent.isPresent()){
-            return currentStudent.get();
-        }
-        return null;
+//        if(currentStudent.isPresent()){
+//            return currentStudent.get();
+//        }
+        return mapToDto(currentStudent.get());
     }
     public List<CreateStudentResponseDTO> getAllStudent(){
         List<Student> studentList = studentRepository.findByDeletedIsFalse();
