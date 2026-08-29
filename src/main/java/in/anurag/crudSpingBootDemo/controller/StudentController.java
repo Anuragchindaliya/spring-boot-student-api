@@ -4,7 +4,6 @@ import in.anurag.crudSpingBootDemo.dto.CreateStudentRequestDTO;
 import in.anurag.crudSpingBootDemo.dto.CreateStudentResponseDTO;
 import in.anurag.crudSpingBootDemo.dto.UpdateStudentRequestDTO;
 import in.anurag.crudSpingBootDemo.dto.UpdateStudentResponseDTO;
-import in.anurag.crudSpingBootDemo.entity.Student;
 import in.anurag.crudSpingBootDemo.service.StudentService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
@@ -30,47 +29,29 @@ public class StudentController {
     @GetMapping("/{id}")
     public ResponseEntity<CreateStudentResponseDTO> getStudent(@PathVariable Long id){
         CreateStudentResponseDTO studentResp = studentService.getStudent(id);
-//        if(studentResp==null){
-//            return ResponseEntity.notFound().build();
-//        }
         return ResponseEntity.ok(studentResp);
     }
     @GetMapping
     public ResponseEntity<List<CreateStudentResponseDTO>> getAllStudent(){
         List<CreateStudentResponseDTO> studentResp = studentService.getAllStudent();
-        if(studentResp.isEmpty()){
-            return ResponseEntity.notFound().build();
-        }
         return ResponseEntity.ok(studentResp);
     }
 
     //  update student
     @PutMapping("/{id}")
     public ResponseEntity<UpdateStudentResponseDTO> updateStudent(@PathVariable Long id, @RequestBody UpdateStudentRequestDTO studentReq){
-
         UpdateStudentResponseDTO studentResp = studentService.updateStudent(id,studentReq);
-        if(studentResp==null){
-            return ResponseEntity.notFound().build();
-        }
         return ResponseEntity.ok(studentResp);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteStudent(@PathVariable Long id){
-        Boolean isDeleted = studentService.deleteStudent(id);
-        if(!isDeleted) {
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok("Record Deleted");
-
+        studentService.deleteStudent(id);
+        return ResponseEntity.noContent().build();
     }
     @DeleteMapping("/{id}/softly")
     public ResponseEntity<String> deleteStudentSoftly(@PathVariable Long id){
-        Boolean isDeleted = studentService.deleteStudentSoftly(id);
-        if(!isDeleted) {
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok("Record Deleted Softly");
-
+       studentService.deleteStudentSoftly(id);
+       return ResponseEntity.noContent().build();
     }
 }
