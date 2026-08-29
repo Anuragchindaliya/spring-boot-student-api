@@ -1,3 +1,5 @@
+[← Back to Master README](file:///Users/anurag/Desktop/crudSpingBootDemo/README.md)
+
 # Spring XML Configuration (Legacy)
 
 Before annotation-based configurations and Spring Boot, Spring applications were configured using XML files. While modern Spring Boot utilizes Java annotations, understanding XML configuration is critical for working with legacy codebases.
@@ -89,3 +91,6 @@ Modern Spring development favors **Java Configuration** (`@Configuration` classe
 | **Boilerplate** | High | Minimal (using component-scan) |
 
 In modern Spring Boot applications, component scanning is enabled by default via the `@SpringBootApplication` annotation, scanning everything in its sub-packages automatically without any XML setup.
+
+
+[← Back to Master README](file:///Users/anurag/Desktop/crudSpingBootDemo/README.md)

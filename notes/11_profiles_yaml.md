@@ -1,3 +1,5 @@
+[← Back to Master README](file:///Users/anurag/Desktop/crudSpingBootDemo/README.md)
+
 # Profiles & YAML Configurations
 
 This note covers the usage of **Spring Profiles** to manage environment-specific configurations and compares standard `.properties` with `.yml` configuration formats.
@@ -101,3 +103,6 @@ server:
 - **Structure**: YAML uses indentation-based hierarchies, whereas properties files use dot-notated key-value flat structures.
 - **Redundancy**: YAML eliminates repeating prefixes (like `spring.datasource`).
 - **Support**: While properties files are standard and supported by standard Java configuration utilities, YAML files require SnakeYAML library (which is included automatically in all Spring Boot starter dependencies).
+
+
+[← Back to Master README](file:///Users/anurag/Desktop/crudSpingBootDemo/README.md)

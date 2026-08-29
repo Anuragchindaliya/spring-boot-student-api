@@ -1,3 +1,5 @@
+[← Back to Master README](file:///Users/anurag/Desktop/crudSpingBootDemo/README.md)
+
 # Bean Scopes, Lifecycle, & Circular Dependencies
 
 This note covers bean creation behavior, lifecycle hooks, scopes, and managing circular dependencies in Spring.
@@ -123,3 +125,6 @@ public class DatabaseConnectionManager {
 
 #### C. Custom init-method and destroy-method
 - Defined in XML configuration or as properties of the `@Bean(initMethod = "...", destroyMethod = "...")` annotation.
+
+
+[← Back to Master README](file:///Users/anurag/Desktop/crudSpingBootDemo/README.md)

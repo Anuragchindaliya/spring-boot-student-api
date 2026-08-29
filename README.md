@@ -39,6 +39,7 @@ Below is the complete 18-part curriculum map. Use this table to jump directly to
 | **#16 DTOs & Jakarta Validations** | [10_dtos_validation_exception_handling.md](file:///Users/anurag/Desktop/crudSpingBootDemo/notes/10_dtos_validation_exception_handling.md) | `@Valid` in [CreateStudentRequestDTO.java](file:///Users/anurag/Desktop/crudSpingBootDemo/src/main/java/in/anurag/crudSpingBootDemo/dto/CreateStudentRequestDTO.java) |
 | **#17 Exception Handling** | [10_dtos_validation_exception_handling.md](file:///Users/anurag/Desktop/crudSpingBootDemo/notes/10_dtos_validation_exception_handling.md) | [GlobalExceptionHandler.java](file:///Users/anurag/Desktop/crudSpingBootDemo/src/main/java/in/anurag/crudSpingBootDemo/exception/GlobalExceptionHandler.java) |
 | **#18 Profiles & YAML Configurations** | [11_profiles_yaml.md](file:///Users/anurag/Desktop/crudSpingBootDemo/notes/11_profiles_yaml.md) | Dev/Prod `@Profile` in [NotificationServiceImpl.java](file:///Users/anurag/Desktop/crudSpingBootDemo/src/main/java/in/anurag/crudSpingBootDemo/service/NotificationServiceImpl.java) |
+| **#19 Filters & FilterChain** | [12_filters_and_filter_chain.md](file:///Users/anurag/Desktop/crudSpingBootDemo/notes/12_filters_and_filter_chain.md) | Standard Servlet Container Filter chains |
 
 ---
 

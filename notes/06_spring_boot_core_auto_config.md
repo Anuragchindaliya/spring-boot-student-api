@@ -1,3 +1,5 @@
+[← Back to Master README](file:///Users/anurag/Desktop/crudSpingBootDemo/README.md)
+
 # Spring Boot Core & Auto-Configuration
 
 This note covers the bootstrap entry point of a Spring Boot application and how auto-configuration works under the hood.
@@ -77,3 +79,6 @@ flowchart TD
     PropCheck -- No --> Exclude
     PropCheck -- Yes --> Register[Register Auto-Config Beans]
 ```
+
+
+[← Back to Master README](file:///Users/anurag/Desktop/crudSpingBootDemo/README.md)

@@ -1,3 +1,5 @@
+[← Back to Master README](file:///Users/anurag/Desktop/crudSpingBootDemo/README.md)
+
 # Apache Maven Foundations
 
 Apache Maven is a software project management and build automation tool used primarily for Java projects. It provides a uniform build system, a standard directory layout, and dependency management.
@@ -94,3 +96,6 @@ In our [pom.xml](file:///Users/anurag/Desktop/crudSpingBootDemo/pom.xml#L65-L70)
 1. **Repackaging**: It repackages standard jars into a **Fat JAR** (or executable archive) containing all transitively resolved dependencies and an embedded web server.
 2. **Execution**: It allows running the Spring Boot application directly using the command `mvn spring-boot:run`.
 3. **Build Information**: It can generate build information details accessible via endpoints.
+
+
+[← Back to Master README](file:///Users/anurag/Desktop/crudSpingBootDemo/README.md)

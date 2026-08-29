@@ -1,3 +1,5 @@
+[← Back to Master README](file:///Users/anurag/Desktop/crudSpingBootDemo/README.md)
+
 # DTOs, Validations, & Exception Handling
 
 This note covers how to build secure, robust, and professional REST APIs in Spring Boot using **Data Transfer Objects (DTOs)**, **Jakarta Bean Validation**, and **Global Exception Handling**.
@@ -116,3 +118,6 @@ public class GlobalExceptionHandler {
 1. **Consistency**: All error payloads share the exact same JSON format (`timestamp`, `status`, `error`, `message`, `path`).
 2. **Client-Friendly**: Validation errors map field-by-field (`email: "Student Email must be valid"`), helping frontend forms render validation highlights easily.
 3. **Safety**: Sensitive stack traces are logged internally but never exposed in the HTTP response.
+
+
+[← Back to Master README](file:///Users/anurag/Desktop/crudSpingBootDemo/README.md)

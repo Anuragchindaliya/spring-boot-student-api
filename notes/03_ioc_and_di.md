@@ -1,3 +1,5 @@
+[← Back to Master README](file:///Users/anurag/Desktop/crudSpingBootDemo/README.md)
+
 # Dependency Injection & Inversion of Control (IoC)
 
 This note explains how Spring achieves **Loose Coupling** through **Inversion of Control (IoC)** and **Dependency Injection (DI)**.
@@ -119,3 +121,6 @@ Dependencies are injected directly into fields via reflection.
 @Autowired
 private StudentRepository studentRepository; // Discouraged
 ```
+
+
+[← Back to Master README](file:///Users/anurag/Desktop/crudSpingBootDemo/README.md)

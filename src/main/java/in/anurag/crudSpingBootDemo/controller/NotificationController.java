@@ -17,6 +17,7 @@ public class NotificationController {
 
     @PostMapping
     public ResponseEntity<String> sendNotification(){
+        System.out.println("notification sent");
         return ResponseEntity.ok(notificationService.send());
     }
 }

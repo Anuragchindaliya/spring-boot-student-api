@@ -1,3 +1,5 @@
+[← Back to Master README](file:///Users/anurag/Desktop/crudSpingBootDemo/README.md)
+
 # CRUD Architecture, JPA, & Soft Delete
 
 This note documents the 3-Tier Layered Architecture of Spring Boot enterprise applications, Spring Data JPA mechanisms, and soft delete logic.
@@ -97,3 +99,6 @@ public ResponseEntity<String> deleteStudent(@PathVariable Long id) {
 }
 ```
 *(Note: To enforce this transparently on all standard JPA methods, Hibernate provides `@SQLDelete(sql = "UPDATE student SET deleted = true WHERE id = ?")` and `@Where(clause = "deleted = false")` annotations. Using the custom repository methods approach, as done in this project, provides explicit control over when soft-delete queries are executed).*
+
+
+[← Back to Master README](file:///Users/anurag/Desktop/crudSpingBootDemo/README.md)

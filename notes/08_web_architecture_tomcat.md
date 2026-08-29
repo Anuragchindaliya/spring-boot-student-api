@@ -1,3 +1,5 @@
+[← Back to Master README](file:///Users/anurag/Desktop/crudSpingBootDemo/README.md)
+
 # Java Web App Architecture & Spring MVC
 
 This note explains how Java web applications function under the hood, comparing traditional servlet setups with modern Spring Boot embedded Tomcat, and detailing the Spring MVC request lifecycle.
@@ -84,3 +86,6 @@ sequenceDiagram
 ```
 
 - **`HttpMessageConverter`**: Spring Boot automatically configures message converters. When a controller method returns a Java object (e.g., `CreateStudentResponseDTO`), the `MappingJackson2HttpMessageConverter` converts the object into a JSON string and writes it directly to the response body.
+
+
+[← Back to Master README](file:///Users/anurag/Desktop/crudSpingBootDemo/README.md)
