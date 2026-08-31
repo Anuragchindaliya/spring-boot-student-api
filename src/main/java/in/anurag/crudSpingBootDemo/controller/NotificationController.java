@@ -1,5 +1,6 @@
 package in.anurag.crudSpingBootDemo.controller;
 
+import in.anurag.crudSpingBootDemo.dto.NotificationResponseDTO;
 import in.anurag.crudSpingBootDemo.service.NotificationService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,7 +17,7 @@ public class NotificationController {
     }
 
     @PostMapping
-    public ResponseEntity<String> sendNotification(){
+    public ResponseEntity<NotificationResponseDTO> sendNotification(){
         System.out.println("notification sent");
         return ResponseEntity.ok(notificationService.send());
     }

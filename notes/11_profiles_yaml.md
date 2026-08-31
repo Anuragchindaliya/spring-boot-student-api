@@ -1,4 +1,4 @@
-[← Back to Master README](file:///Users/anurag/Desktop/crudSpingBootDemo/README.md)
+[← Back to Master README](../README.md)
 
 # Profiles & YAML Configurations
 
@@ -14,10 +14,10 @@ Profiles are a core feature of Spring that allow you to segregate parts of your 
 Spring Boot automatically searches for files conforming to `application-{profile}.properties` or `application-{profile}.yml` and overrides properties found in the main `application.properties` file.
 
 In our codebase:
-- [application.properties](file:///Users/anurag/Desktop/crudSpingBootDemo/src/main/resources/application.properties): Contains global defaults.
-- [application-dev.properties](file:///Users/anurag/Desktop/crudSpingBootDemo/src/main/resources/application-dev.properties): Database credentials and logging configurations for local development.
-- [application-staging.properties](file:///Users/anurag/Desktop/crudSpingBootDemo/src/main/resources/application-staging.properties): Staging environment database configuration.
-- [application-prod.properties](file:///Users/anurag/Desktop/crudSpingBootDemo/src/main/resources/application-prod.properties): Secure PostgreSQL database connections and optimized pool configurations for production.
+- [application.properties](../src/main/resources/application.properties): Contains global defaults.
+- [application-dev.properties](../src/main/resources/application-dev.properties): Database credentials and logging configurations for local development.
+- [application-staging.properties](../src/main/resources/application-staging.properties): Staging environment database configuration.
+- [application-prod.properties](../src/main/resources/application-prod.properties): Secure PostgreSQL database connections and optimized pool configurations for production.
 
 ### Activating Profiles
 You can activate profiles in several ways:
@@ -42,10 +42,10 @@ You can activate profiles in several ways:
 You can conditionally load beans into the Spring container depending on the active profile by utilizing the `@Profile` annotation.
 
 ### Codebase Demonstration
-We declare [NotificationService.java](file:///Users/anurag/Desktop/crudSpingBootDemo/src/main/java/in/anurag/crudSpingBootDemo/service/NotificationService.java) to demonstrate this:
+We declare [NotificationService.java](../src/main/java/in/anurag/crudSpingBootDemo/service/NotificationService.java) to demonstrate this:
 
 1. **Mock Service for Local Work**:
-   In [DummyNotificationServiceImpl.java](file:///Users/anurag/Desktop/crudSpingBootDemo/src/main/java/in/anurag/crudSpingBootDemo/service/DummyNotificationServiceImpl.java), we annotate the class to load on `dev`, `staging`, or when no profile is selected (`default`):
+   In [DummyNotificationServiceImpl.java](../src/main/java/in/anurag/crudSpingBootDemo/service/DummyNotificationServiceImpl.java), we annotate the class to load on `dev`, `staging`, or when no profile is selected (`default`):
    ```java
    @Service
    @Profile({"dev", "default", "staging"})
@@ -58,7 +58,7 @@ We declare [NotificationService.java](file:///Users/anurag/Desktop/crudSpingBoot
    ```
 
 2. **Real Service for Production**:
-   In [NotificationServiceImpl.java](file:///Users/anurag/Desktop/crudSpingBootDemo/src/main/java/in/anurag/crudSpingBootDemo/service/NotificationServiceImpl.java), we restrict the bean to the `prod` profile:
+   In [NotificationServiceImpl.java](../src/main/java/in/anurag/crudSpingBootDemo/service/NotificationServiceImpl.java), we restrict the bean to the `prod` profile:
    ```java
    @Service
    @Profile("prod")
@@ -70,7 +70,7 @@ We declare [NotificationService.java](file:///Users/anurag/Desktop/crudSpingBoot
    }
    ```
 
-When [NotificationController](file:///Users/anurag/Desktop/crudSpingBootDemo/src/main/java/in/anurag/crudSpingBootDemo/controller/NotificationController.java) receives an injection request for `NotificationService`, Spring checks the active profile and injects the corresponding bean.
+When [NotificationController](../src/main/java/in/anurag/crudSpingBootDemo/controller/NotificationController.java) receives an injection request for `NotificationService`, Spring checks the active profile and injects the corresponding bean.
 
 ---
 
@@ -105,4 +105,4 @@ server:
 - **Support**: While properties files are standard and supported by standard Java configuration utilities, YAML files require SnakeYAML library (which is included automatically in all Spring Boot starter dependencies).
 
 
-[← Back to Master README](file:///Users/anurag/Desktop/crudSpingBootDemo/README.md)
+[← Back to Master README](../README.md)

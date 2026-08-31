@@ -1,4 +1,4 @@
-[← Back to Master README](file:///Users/anurag/Desktop/crudSpingBootDemo/README.md)
+[← Back to Master README](../README.md)
 
 # Spring Boot Core & Auto-Configuration
 
@@ -8,7 +8,7 @@ This note covers the bootstrap entry point of a Spring Boot application and how 
 
 ## 1. The `@SpringBootApplication` Annotation
 
-Every Spring Boot application begins with a main class annotated with `@SpringBootApplication`. In our project, this is [CrudSpingBootDemoApplication.java](file:///Users/anurag/Desktop/crudSpingBootDemo/src/main/java/in/anurag/crudSpingBootDemo/CrudSpingBootDemoApplication.java).
+Every Spring Boot application begins with a main class annotated with `@SpringBootApplication`. In our project, this is [CrudSpingBootDemoApplication.java](../src/main/java/in/anurag/crudSpingBootDemo/CrudSpingBootDemoApplication.java).
 
 ```java
 package in.anurag.crudSpingBootDemo;
@@ -81,4 +81,4 @@ flowchart TD
 ```
 
 
-[← Back to Master README](file:///Users/anurag/Desktop/crudSpingBootDemo/README.md)
+[← Back to Master README](../README.md)

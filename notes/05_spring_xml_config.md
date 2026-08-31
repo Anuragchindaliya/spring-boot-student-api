@@ -1,4 +1,4 @@
-[← Back to Master README](file:///Users/anurag/Desktop/crudSpingBootDemo/README.md)
+[← Back to Master README](../README.md)
 
 # Spring XML Configuration (Legacy)
 
@@ -93,4 +93,4 @@ Modern Spring development favors **Java Configuration** (`@Configuration` classe
 In modern Spring Boot applications, component scanning is enabled by default via the `@SpringBootApplication` annotation, scanning everything in its sub-packages automatically without any XML setup.
 
 
-[← Back to Master README](file:///Users/anurag/Desktop/crudSpingBootDemo/README.md)
+[← Back to Master README](../README.md)

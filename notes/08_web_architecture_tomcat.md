@@ -1,4 +1,4 @@
-[← Back to Master README](file:///Users/anurag/Desktop/crudSpingBootDemo/README.md)
+[← Back to Master README](../README.md)
 
 # Java Web App Architecture & Spring MVC
 
@@ -88,4 +88,4 @@ sequenceDiagram
 - **`HttpMessageConverter`**: Spring Boot automatically configures message converters. When a controller method returns a Java object (e.g., `CreateStudentResponseDTO`), the `MappingJackson2HttpMessageConverter` converts the object into a JSON string and writes it directly to the response body.
 
 
-[← Back to Master README](file:///Users/anurag/Desktop/crudSpingBootDemo/README.md)
+[← Back to Master README](../README.md)

@@ -23,9 +23,13 @@ public class AuthenticationFilter implements Filter {
 
         if(token==null || !token.equals("12345")){
             httpResponse.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            httpResponse.getWriter().write("No token");
+            httpResponse.setContentType("application/json");
+            httpResponse.getWriter().write("{\n" +
+                    "    \"message\":\"Authentication is required\"\n" +
+                    "}");
             return;
         }
+        System.out.println("token : "+token);
         if(apiKey == null || !apiKey.equals("secret123")){
             httpResponse.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             httpResponse.setContentType("application/json");
@@ -34,6 +38,7 @@ public class AuthenticationFilter implements Filter {
                     "}");
             return;
         }
+        System.out.println("apiKey : "+apiKey);
         chain.doFilter(request,response);
     }
 }

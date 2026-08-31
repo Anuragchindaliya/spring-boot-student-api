@@ -21,25 +21,25 @@ Below is the complete 18-part curriculum map. Use this table to jump directly to
 
 | Course Video / Concept | Detailed Conceptual Notes | Real-world Code Implementation |
 | :--- | :--- | :--- |
-| **#1 Spring Boot & Framework Intro** | [01_spring_vs_spring_boot.md](file:///Users/anurag/Desktop/crudSpingBootDemo/notes/01_spring_vs_spring_boot.md) | Standard Spring container initialization |
-| **#2 First Spring Boot Application** | [01_spring_vs_spring_boot.md](file:///Users/anurag/Desktop/crudSpingBootDemo/notes/01_spring_vs_spring_boot.md) | [StudentController.java](file:///Users/anurag/Desktop/crudSpingBootDemo/src/main/java/in/anurag/crudSpingBootDemo/controller/StudentController.java) |
-| **#3 Master Apache Maven** | [02_maven_basics.md](file:///Users/anurag/Desktop/crudSpingBootDemo/notes/02_maven_basics.md) | [pom.xml](file:///Users/anurag/Desktop/crudSpingBootDemo/pom.xml) |
-| **#4 DI & IoC Explained** | [03_ioc_and_di.md](file:///Users/anurag/Desktop/crudSpingBootDemo/notes/03_ioc_and_di.md) | Constructor Injection inside [StudentService.java](file:///Users/anurag/Desktop/crudSpingBootDemo/src/main/java/in/anurag/crudSpingBootDemo/service/StudentService.java#L19-L23) |
-| **#5 Beans, @Component, @Autowired** | [03_ioc_and_di.md](file:///Users/anurag/Desktop/crudSpingBootDemo/notes/03_ioc_and_di.md) | [NotificationController.java](file:///Users/anurag/Desktop/crudSpingBootDemo/src/main/java/in/anurag/crudSpingBootDemo/controller/NotificationController.java) |
-| **#6 Circular Dependency & Scopes** | [04_circular_dependency_scopes_lifecycle.md](file:///Users/anurag/Desktop/crudSpingBootDemo/notes/04_circular_dependency_scopes_lifecycle.md) | Managed by IoC container configurations |
-| **#7 Bean Lifecycle & @Lazy** | [04_circular_dependency_scopes_lifecycle.md](file:///Users/anurag/Desktop/crudSpingBootDemo/notes/04_circular_dependency_scopes_lifecycle.md) | `@PostConstruct` & `@PreDestroy` definitions |
-| **#8 Spring XML Configuration** | [05_spring_xml_config.md](file:///Users/anurag/Desktop/crudSpingBootDemo/notes/05_spring_xml_config.md) | Comparison notes (Java Annotation-driven preferred) |
-| **#9 Spring Boot Core & Auto Config** | [06_spring_boot_core_auto_config.md](file:///Users/anurag/Desktop/crudSpingBootDemo/notes/06_spring_boot_core_auto_config.md) | [CrudSpingBootDemoApplication.java](file:///Users/anurag/Desktop/crudSpingBootDemo/src/main/java/in/anurag/crudSpingBootDemo/CrudSpingBootDemoApplication.java) |
-| **#10 properties, @Value, & Runners** | [07_properties_value_runners.md](file:///Users/anurag/Desktop/crudSpingBootDemo/notes/07_properties_value_runners.md) | `@Value` in [ServerInfoController.java](file:///Users/anurag/Desktop/crudSpingBootDemo/src/main/java/in/anurag/crudSpingBootDemo/controller/ServerInfoController.java#L12) |
-| **#11 CRUD Project Architecture** | [09_crud_jpa_soft_delete.md](file:///Users/anurag/Desktop/crudSpingBootDemo/notes/09_crud_jpa_soft_delete.md) | 3-tier structure (Controllers, Services, Repos) |
-| **#12 CRUD MySQL/Postgres JPA Methods** | [09_crud_jpa_soft_delete.md](file:///Users/anurag/Desktop/crudSpingBootDemo/notes/09_crud_jpa_soft_delete.md) | JpaRepository usage in [StudentRepository.java](file:///Users/anurag/Desktop/crudSpingBootDemo/src/main/java/in/anurag/crudSpingBootDemo/repository/StudentRepository.java) |
-| **#13 Soft Delete Implementation** | [09_crud_jpa_soft_delete.md](file:///Users/anurag/Desktop/crudSpingBootDemo/notes/09_crud_jpa_soft_delete.md) | `deleted` flag filter in [StudentRepository.java](file:///Users/anurag/Desktop/crudSpingBootDemo/src/main/java/in/anurag/crudSpingBootDemo/repository/StudentRepository.java#L12-L13) |
-| **#14 Servlets, Tomcat, & WAR files** | [08_web_architecture_tomcat.md](file:///Users/anurag/Desktop/crudSpingBootDemo/notes/08_web_architecture_tomcat.md) | Running on Embedded Tomcat Servlet Container |
-| **#15 Spring MVC Architecture** | [08_web_architecture_tomcat.md](file:///Users/anurag/Desktop/crudSpingBootDemo/notes/08_web_architecture_tomcat.md) | DispatcherServlet Front-Controller mapping |
-| **#16 DTOs & Jakarta Validations** | [10_dtos_validation_exception_handling.md](file:///Users/anurag/Desktop/crudSpingBootDemo/notes/10_dtos_validation_exception_handling.md) | `@Valid` in [CreateStudentRequestDTO.java](file:///Users/anurag/Desktop/crudSpingBootDemo/src/main/java/in/anurag/crudSpingBootDemo/dto/CreateStudentRequestDTO.java) |
-| **#17 Exception Handling** | [10_dtos_validation_exception_handling.md](file:///Users/anurag/Desktop/crudSpingBootDemo/notes/10_dtos_validation_exception_handling.md) | [GlobalExceptionHandler.java](file:///Users/anurag/Desktop/crudSpingBootDemo/src/main/java/in/anurag/crudSpingBootDemo/exception/GlobalExceptionHandler.java) |
-| **#18 Profiles & YAML Configurations** | [11_profiles_yaml.md](file:///Users/anurag/Desktop/crudSpingBootDemo/notes/11_profiles_yaml.md) | Dev/Prod `@Profile` in [NotificationServiceImpl.java](file:///Users/anurag/Desktop/crudSpingBootDemo/src/main/java/in/anurag/crudSpingBootDemo/service/NotificationServiceImpl.java) |
-| **#19 Filters & FilterChain** | [12_filters_and_filter_chain.md](file:///Users/anurag/Desktop/crudSpingBootDemo/notes/12_filters_and_filter_chain.md) | Standard Servlet Container Filter chains |
+| **#1 Spring Boot & Framework Intro** | [01_spring_vs_spring_boot.md](notes/01_spring_vs_spring_boot.md) | Standard Spring container initialization |
+| **#2 First Spring Boot Application** | [01_spring_vs_spring_boot.md](notes/01_spring_vs_spring_boot.md) | [StudentController.java](src/main/java/in/anurag/crudSpingBootDemo/controller/StudentController.java) |
+| **#3 Master Apache Maven** | [02_maven_basics.md](notes/02_maven_basics.md) | [pom.xml](pom.xml) |
+| **#4 DI & IoC Explained** | [03_ioc_and_di.md](notes/03_ioc_and_di.md) | Constructor Injection inside [StudentService.java](src/main/java/in/anurag/crudSpingBootDemo/service/StudentService.java#L19-L23) |
+| **#5 Beans, @Component, @Autowired** | [03_ioc_and_di.md](notes/03_ioc_and_di.md) | [NotificationController.java](src/main/java/in/anurag/crudSpingBootDemo/controller/NotificationController.java) |
+| **#6 Circular Dependency & Scopes** | [04_circular_dependency_scopes_lifecycle.md](notes/04_circular_dependency_scopes_lifecycle.md) | Managed by IoC container configurations |
+| **#7 Bean Lifecycle & @Lazy** | [04_circular_dependency_scopes_lifecycle.md](notes/04_circular_dependency_scopes_lifecycle.md) | `@PostConstruct` & `@PreDestroy` definitions |
+| **#8 Spring XML Configuration** | [05_spring_xml_config.md](notes/05_spring_xml_config.md) | Comparison notes (Java Annotation-driven preferred) |
+| **#9 Spring Boot Core & Auto Config** | [06_spring_boot_core_auto_config.md](notes/06_spring_boot_core_auto_config.md) | [CrudSpingBootDemoApplication.java](src/main/java/in/anurag/crudSpingBootDemo/CrudSpingBootDemoApplication.java) |
+| **#10 properties, @Value, & Runners** | [07_properties_value_runners.md](notes/07_properties_value_runners.md) | `@Value` in [ServerInfoController.java](src/main/java/in/anurag/crudSpingBootDemo/controller/ServerInfoController.java#L12) |
+| **#11 CRUD Project Architecture** | [09_crud_jpa_soft_delete.md](notes/09_crud_jpa_soft_delete.md) | 3-tier structure (Controllers, Services, Repos) |
+| **#12 CRUD MySQL/Postgres JPA Methods** | [09_crud_jpa_soft_delete.md](notes/09_crud_jpa_soft_delete.md) | JpaRepository usage in [StudentRepository.java](src/main/java/in/anurag/crudSpingBootDemo/repository/StudentRepository.java) |
+| **#13 Soft Delete Implementation** | [09_crud_jpa_soft_delete.md](notes/09_crud_jpa_soft_delete.md) | `deleted` flag filter in [StudentRepository.java](src/main/java/in/anurag/crudSpingBootDemo/repository/StudentRepository.java#L12-L13) |
+| **#14 Servlets, Tomcat, & WAR files** | [08_web_architecture_tomcat.md](notes/08_web_architecture_tomcat.md) | Running on Embedded Tomcat Servlet Container |
+| **#15 Spring MVC Architecture** | [08_web_architecture_tomcat.md](notes/08_web_architecture_tomcat.md) | DispatcherServlet Front-Controller mapping |
+| **#16 DTOs & Jakarta Validations** | [10_dtos_validation_exception_handling.md](notes/10_dtos_validation_exception_handling.md) | `@Valid` in [CreateStudentRequestDTO.java](src/main/java/in/anurag/crudSpingBootDemo/dto/CreateStudentRequestDTO.java) |
+| **#17 Exception Handling** | [10_dtos_validation_exception_handling.md](notes/10_dtos_validation_exception_handling.md) | [GlobalExceptionHandler.java](src/main/java/in/anurag/crudSpingBootDemo/exception/GlobalExceptionHandler.java) |
+| **#18 Profiles & YAML Configurations** | [11_profiles_yaml.md](notes/11_profiles_yaml.md) | Dev/Prod `@Profile` in [NotificationServiceImpl.java](src/main/java/in/anurag/crudSpingBootDemo/service/NotificationServiceImpl.java) |
+| **#19 Filters & FilterChain** | [12_filters_and_filter_chain.md](notes/12_filters_and_filter_chain.md) | Standard Servlet Container Filter chains |
 
 ---
 
@@ -60,9 +60,9 @@ The application follows the clean, maintainable 3-tier architecture:
                      [PostgreSQL]     (Database persistence)
 ```
 
-1. **Presentation Layer**: [StudentController.java](file:///Users/anurag/Desktop/crudSpingBootDemo/src/main/java/in/anurag/crudSpingBootDemo/controller/StudentController.java) receives raw payloads, enforces path variables, and issues appropriate HTTP response status codes.
-2. **Service Layer**: [StudentService.java](file:///Users/anurag/Desktop/crudSpingBootDemo/src/main/java/in/anurag/crudSpingBootDemo/service/StudentService.java) enforces business constraints (e.g. email uniqueness checking) and translates between entity structures ([Student.java](file:///Users/anurag/Desktop/crudSpingBootDemo/src/main/java/in/anurag/crudSpingBootDemo/entity/Student.java)) and security DTO wrappers.
-3. **Repository Layer**: [StudentRepository.java](file:///Users/anurag/Desktop/crudSpingBootDemo/src/main/java/in/anurag/crudSpingBootDemo/repository/StudentRepository.java) uses Spring Data JPA to translate method invocations into optimized SQL execution plans.
+1. **Presentation Layer**: [StudentController.java](src/main/java/in/anurag/crudSpingBootDemo/controller/StudentController.java) receives raw payloads, enforces path variables, and issues appropriate HTTP response status codes.
+2. **Service Layer**: [StudentService.java](src/main/java/in/anurag/crudSpingBootDemo/service/StudentService.java) enforces business constraints (e.g. email uniqueness checking) and translates between entity structures ([Student.java](src/main/java/in/anurag/crudSpingBootDemo/entity/Student.java)) and security DTO wrappers.
+3. **Repository Layer**: [StudentRepository.java](src/main/java/in/anurag/crudSpingBootDemo/repository/StudentRepository.java) uses Spring Data JPA to translate method invocations into optimized SQL execution plans.
 
 ---
 
@@ -71,7 +71,7 @@ The application follows the clean, maintainable 3-tier architecture:
 ### 1. Prerequisites
 - Java Development Kit (JDK) 21
 - Maven installed locally (or run using `./mvnw` wrapper)
-- A running PostgreSQL instance (credentials defined in [application-dev.properties](file:///Users/anurag/Desktop/crudSpingBootDemo/src/main/resources/application-dev.properties))
+- A running PostgreSQL instance (credentials defined in [application-dev.properties](src/main/resources/application-dev.properties))
 
 ### 2. Run the Application
 You can run the application locally using the standard Maven profile setup:

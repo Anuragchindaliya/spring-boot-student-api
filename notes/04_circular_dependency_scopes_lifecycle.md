@@ -1,4 +1,4 @@
-[← Back to Master README](file:///Users/anurag/Desktop/crudSpingBootDemo/README.md)
+[← Back to Master README](../README.md)
 
 # Bean Scopes, Lifecycle, & Circular Dependencies
 
@@ -127,4 +127,4 @@ public class DatabaseConnectionManager {
 - Defined in XML configuration or as properties of the `@Bean(initMethod = "...", destroyMethod = "...")` annotation.
 
 
-[← Back to Master README](file:///Users/anurag/Desktop/crudSpingBootDemo/README.md)
+[← Back to Master README](../README.md)

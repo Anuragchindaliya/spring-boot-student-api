@@ -1,4 +1,4 @@
-[← Back to Master README](file:///Users/anurag/Desktop/crudSpingBootDemo/README.md)
+[← Back to Master README](../README.md)
 
 # Apache Maven Foundations
 
@@ -20,7 +20,7 @@ The **POM** (`pom.xml`) is the fundamental unit of work in Maven. It is an XML f
 3. **Dependencies**: List of external libraries required by the project.
 4. **Plugins**: Extensions to Maven to perform specific build tasks (e.g., packaging an executable jar).
 
-Look at our project's [pom.xml](file:///Users/anurag/Desktop/crudSpingBootDemo/pom.xml) for a live example of these concepts!
+Look at our project's [pom.xml](../pom.xml) for a live example of these concepts!
 
 ---
 
@@ -83,7 +83,7 @@ This handles the compilation and packaging of your application. The key phases a
 ## 4. Plugins & The Spring Boot Plugin
 
 Maven's core features are executed by plugins.
-In our [pom.xml](file:///Users/anurag/Desktop/crudSpingBootDemo/pom.xml#L65-L70), we declare the **`spring-boot-maven-plugin`**:
+In our [pom.xml](../pom.xml#L65-L70), we declare the **`spring-boot-maven-plugin`**:
 
 ```xml
 <plugin>
@@ -98,4 +98,4 @@ In our [pom.xml](file:///Users/anurag/Desktop/crudSpingBootDemo/pom.xml#L65-L70)
 3. **Build Information**: It can generate build information details accessible via endpoints.
 
 
-[← Back to Master README](file:///Users/anurag/Desktop/crudSpingBootDemo/README.md)
+[← Back to Master README](../README.md)

@@ -1,4 +1,4 @@
-[← Back to Master README](file:///Users/anurag/Desktop/crudSpingBootDemo/README.md)
+[← Back to Master README](../README.md)
 
 # Properties, @Value, & Runner Interfaces
 
@@ -24,7 +24,7 @@ Spring Boot allows you to externalize your configuration so you can work with th
 The `@Value` annotation is used to inject property values, environment variables, or expressions into fields of Spring-managed beans.
 
 ### Basic Property Injection
-In our project, [ServerInfoController.java](file:///Users/anurag/Desktop/crudSpingBootDemo/src/main/java/in/anurag/crudSpingBootDemo/controller/ServerInfoController.java) uses `@Value` to fetch the application name defined in properties:
+In our project, [ServerInfoController.java](../src/main/java/in/anurag/crudSpingBootDemo/controller/ServerInfoController.java) uses `@Value` to fetch the application name defined in properties:
 
 ```java
 @RestController
@@ -128,4 +128,4 @@ public class SecondRunner implements CommandLineRunner { ... }
 ```
 
 
-[← Back to Master README](file:///Users/anurag/Desktop/crudSpingBootDemo/README.md)
+[← Back to Master README](../README.md)

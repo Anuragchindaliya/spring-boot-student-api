@@ -1,4 +1,4 @@
-[← Back to Master README](file:///Users/anurag/Desktop/crudSpingBootDemo/README.md)
+[← Back to Master README](../README.md)
 
 # Spring Framework & Spring Boot Introduction
 
@@ -42,7 +42,7 @@ To build a REST API in Spring Boot, we utilize the **Spring Web** starter, which
 
 ### Real-world Code Example
 
-In our project, [StudentController.java](file:///Users/anurag/Desktop/crudSpingBootDemo/src/main/java/in/anurag/crudSpingBootDemo/controller/StudentController.java) acts as the entry point for the REST API. Below is a simplified representation of how it is defined:
+In our project, [StudentController.java](../src/main/java/in/anurag/crudSpingBootDemo/controller/StudentController.java) acts as the entry point for the REST API. Below is a simplified representation of how it is defined:
 
 ```java
 package in.anurag.crudSpingBootDemo.controller;
@@ -92,4 +92,4 @@ public class StudentController {
 7. **DispatcherServlet** uses Jackson to serialize the response object back to a JSON string and sends the HTTP response back to the client.
 
 
-[← Back to Master README](file:///Users/anurag/Desktop/crudSpingBootDemo/README.md)
+[← Back to Master README](../README.md)

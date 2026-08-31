@@ -1,4 +1,4 @@
-[← Back to Master README](file:///Users/anurag/Desktop/crudSpingBootDemo/README.md)
+[← Back to Master README](../README.md)
 
 # DTOs, Validations, & Exception Handling
 
@@ -16,10 +16,10 @@ This note covers how to build secure, robust, and professional REST APIs in Spri
 3. **Data Tailoring**: Entities represent database rows, whereas DTOs represent specific payloads (e.g., we don't want to receive `id` or `createdAt` during student creation, but we do want to return them in the response).
 
 In our project, we have separate requests and responses:
-- [CreateStudentRequestDTO.java](file:///Users/anurag/Desktop/crudSpingBootDemo/src/main/java/in/anurag/crudSpingBootDemo/dto/CreateStudentRequestDTO.java)
-- [CreateStudentResponseDTO.java](file:///Users/anurag/Desktop/crudSpingBootDemo/src/main/java/in/anurag/crudSpingBootDemo/dto/CreateStudentResponseDTO.java)
-- [UpdateStudentRequestDTO.java](file:///Users/anurag/Desktop/crudSpingBootDemo/src/main/java/in/anurag/crudSpingBootDemo/dto/UpdateStudentRequestDTO.java)
-- [UpdateStudentResponseDTO.java](file:///Users/anurag/Desktop/crudSpingBootDemo/src/main/java/in/anurag/crudSpingBootDemo/dto/UpdateStudentResponseDTO.java)
+- [CreateStudentRequestDTO.java](../src/main/java/in/anurag/crudSpingBootDemo/dto/CreateStudentRequestDTO.java)
+- [CreateStudentResponseDTO.java](../src/main/java/in/anurag/crudSpingBootDemo/dto/CreateStudentResponseDTO.java)
+- [UpdateStudentRequestDTO.java](../src/main/java/in/anurag/crudSpingBootDemo/dto/UpdateStudentRequestDTO.java)
+- [UpdateStudentResponseDTO.java](../src/main/java/in/anurag/crudSpingBootDemo/dto/UpdateStudentResponseDTO.java)
 
 ---
 
@@ -35,7 +35,7 @@ We can validate client inputs declarative-style using the standard validation st
 - **`@Email`**: Validates format matches email standards.
 
 #### Code Example:
-In [CreateStudentRequestDTO.java](file:///Users/anurag/Desktop/crudSpingBootDemo/src/main/java/in/anurag/crudSpingBootDemo/dto/CreateStudentRequestDTO.java):
+In [CreateStudentRequestDTO.java](../src/main/java/in/anurag/crudSpingBootDemo/dto/CreateStudentRequestDTO.java):
 ```java
 public class CreateStudentRequestDTO {
     @NotBlank(message = "Name cannot be null/Empty or blank")
@@ -53,7 +53,7 @@ public class CreateStudentRequestDTO {
 ```
 
 ### Activating Validation
-In [StudentController.java](file:///Users/anurag/Desktop/crudSpingBootDemo/src/main/java/in/anurag/crudSpingBootDemo/controller/StudentController.java), we apply the `@Valid` annotation to request bodies:
+In [StudentController.java](../src/main/java/in/anurag/crudSpingBootDemo/controller/StudentController.java), we apply the `@Valid` annotation to request bodies:
 ```java
 @PostMapping
 public ResponseEntity<CreateStudentResponseDTO> createStudent(@Valid @RequestBody CreateStudentRequestDTO request) {
@@ -73,7 +73,7 @@ Instead of letting errors crash requests and return default server tracebacks, w
 - **`@ExceptionHandler`**: Marks a method inside the advice class to handle specific exceptions.
 
 ### Project Implementation:
-Look at our [GlobalExceptionHandler.java](file:///Users/anurag/Desktop/crudSpingBootDemo/src/main/java/in/anurag/crudSpingBootDemo/exception/GlobalExceptionHandler.java):
+Look at our [GlobalExceptionHandler.java](../src/main/java/in/anurag/crudSpingBootDemo/exception/GlobalExceptionHandler.java):
 
 ```java
 @RestControllerAdvice
@@ -120,4 +120,4 @@ public class GlobalExceptionHandler {
 3. **Safety**: Sensitive stack traces are logged internally but never exposed in the HTTP response.
 
 
-[← Back to Master README](file:///Users/anurag/Desktop/crudSpingBootDemo/README.md)
+[← Back to Master README](../README.md)

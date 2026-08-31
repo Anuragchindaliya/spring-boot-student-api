@@ -1,4 +1,4 @@
-[← Back to Master README](file:///Users/anurag/Desktop/crudSpingBootDemo/README.md)
+[← Back to Master README](../README.md)
 
 # Dependency Injection & Inversion of Control (IoC)
 
@@ -35,8 +35,8 @@ public class NotificationController {
 }
 ```
 In our project:
-- [NotificationController.java](file:///Users/anurag/Desktop/crudSpingBootDemo/src/main/java/in/anurag/crudSpingBootDemo/controller/NotificationController.java) doesn't know *which* concrete notification service is used.
-- It only knows the [NotificationService](file:///Users/anurag/Desktop/crudSpingBootDemo/src/main/java/in/anurag/crudSpingBootDemo/service/NotificationService.java) interface.
+- [NotificationController.java](../src/main/java/in/anurag/crudSpingBootDemo/controller/NotificationController.java) doesn't know *which* concrete notification service is used.
+- It only knows the [NotificationService](../src/main/java/in/anurag/crudSpingBootDemo/service/NotificationService.java) interface.
 - The actual instance is injected at runtime.
 
 ---
@@ -123,4 +123,4 @@ private StudentRepository studentRepository; // Discouraged
 ```
 
 
-[← Back to Master README](file:///Users/anurag/Desktop/crudSpingBootDemo/README.md)
+[← Back to Master README](../README.md)
