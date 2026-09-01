@@ -33,6 +33,7 @@ public class StudentController {
     }
     @GetMapping
     public ResponseEntity<List<CreateStudentResponseDTO>> getAllStudent(){
+        System.out.println("controller called");
         List<CreateStudentResponseDTO> studentResp = studentService.getAllStudent();
         return ResponseEntity.ok(studentResp);
     }
