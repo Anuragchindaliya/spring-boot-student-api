@@ -14,14 +14,27 @@ import java.util.UUID;
 public class AuthenticationFilter implements Filter {
 
     @Override
-    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+            throws IOException, ServletException {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpServletResponse httpResponse = (HttpServletResponse) response;
-
+        // authentication and auhorization should happen in filter only not in
+        // interceptor
+        // spring security is also use filter to perform authentication and
+        // authorization
+        String roleName = httpRequest.getHeader("x-user-role");
+        if (roleName != null & !"ADMIN".equals(roleName)) {
+            httpResponse.setStatus(HttpServletResponse.SC_FORBIDDEN);
+            httpResponse.setContentType("application/json");
+            httpResponse.getWriter().write("{\n" +
+                    "    \"message\":\"You are not authorized to perform this action\"\n" +
+                    "}");
+            return;
+        }
         String token = httpRequest.getHeader("token");
         String apiKey = httpRequest.getHeader("x-api-key");
 
-        if(token==null || !token.equals("12345")){
+        if (token == null || !token.equals("12345")) {
             httpResponse.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             httpResponse.setContentType("application/json");
             httpResponse.getWriter().write("{\n" +
@@ -29,8 +42,8 @@ public class AuthenticationFilter implements Filter {
                     "}");
             return;
         }
-        System.out.println("token : "+token);
-        if(apiKey == null || !apiKey.equals("secret123")){
+        System.out.println("token : " + token);
+        if (apiKey == null || !apiKey.equals("secret123")) {
             httpResponse.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             httpResponse.setContentType("application/json");
             httpResponse.getWriter().write("{\n" +
@@ -38,7 +51,7 @@ public class AuthenticationFilter implements Filter {
                     "}");
             return;
         }
-        System.out.println("apiKey : "+apiKey);
-        chain.doFilter(request,response);
+        System.out.println("apiKey : " + apiKey);
+        chain.doFilter(request, response);
     }
 }
