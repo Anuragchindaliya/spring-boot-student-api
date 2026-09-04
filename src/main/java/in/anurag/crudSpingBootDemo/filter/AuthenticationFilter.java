@@ -18,6 +18,15 @@ public class AuthenticationFilter implements Filter {
             throws IOException, ServletException {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpServletResponse httpResponse = (HttpServletResponse) response;
+        String pathUrl = httpRequest.getRequestURI();
+        System.out.print("current request uri : "+pathUrl);
+        boolean b = !pathUrl.startsWith("/api/stu");
+            System.out.print("endpoint boolean : "+b);
+        if(b){
+
+            chain.doFilter(request,response);
+            return;
+        }
         // authentication and auhorization should happen in filter only not in
         // interceptor
         // spring security is also use filter to perform authentication and
