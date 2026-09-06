@@ -20,18 +20,22 @@ import org.springframework.stereotype.Component;
 //        afterLogic();
 //    }
 
-@Component
 @Aspect
+@Component
 public class LoggingAspect {
     // Advice is @Before, @After, @AfterReturning, @AfterThrowing, @Around and method implementation
     // pointcut is execution(String in.anurag.crudSpingBootDemo.service.SchoolService)
 
     // we can use @Before for example checking authorization access and validation
-    @Before("execution(* in.anurag.crudSpingBootDemo.service.SchoolService.createSchool(..))")
-    public void logBeforeMethod(JoinPoint joinPoint){
-        Object[] arr = joinPoint.getArgs();
-        System.out.println("School is going to be created from aspect "+arr.toString());
+    // @Before("execution(* in.anurag.crudSpingBootDemo.service.SchoolService.createSchool(..))")
+    // if need to intercept whole class methods we can use within
+//    @Before("within(in.anurag.crudSpingBootDemo.service.SchoolService)")
+    // this bean designator is also use for adding interceptor in whole class(bean)
+    //@Before("bean(schoolService)")
 
+    @Before("in.anurag.crudSpingBootDemo.aspect.ApplicationPointcuts.publicServiceMethod()")
+    public void logBeforeMethod(){
+        System.out.println("School is going to be created from aspect using pointcuts");
     }
     @AfterReturning(value = "execution(* in.anurag.crudSpingBootDemo.service.SchoolService.createSchool(..))", returning = "result")
     public void logAfterReturningMethod(JoinPoint joinPoint, CreateSchoolDTO result){
@@ -84,7 +88,7 @@ public class LoggingAspect {
                 modifiedfiedString
         };
         System.out.println("Aspect logAfterDummyMethod is called! for dummyMethod "+modifiedfiedString);
-        // we can call multiple times 
+        // we can call multiple times
         String returnType  = (String) joinPoint.proceed(arr);
         String returnType2  = (String) joinPoint.proceed(modifiedArr);
 
