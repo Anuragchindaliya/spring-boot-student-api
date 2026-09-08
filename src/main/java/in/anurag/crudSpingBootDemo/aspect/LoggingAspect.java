@@ -1,5 +1,6 @@
 package in.anurag.crudSpingBootDemo.aspect;
 
+import in.anurag.crudSpingBootDemo.annotation.TrackExecutionTime;
 import in.anurag.crudSpingBootDemo.dto.CreateSchoolDTO;
 import in.anurag.crudSpingBootDemo.entity.Student;
 import org.aspectj.lang.JoinPoint;
@@ -33,10 +34,48 @@ public class LoggingAspect {
     // this bean designator is also use for adding interceptor in whole class(bean)
     //@Before("bean(schoolService)")
 
-    @Before("in.anurag.crudSpingBootDemo.aspect.ApplicationPointcuts.publicServiceMethod()")
+    //@within only for specified class's method not for parent class methods
+    //@target works for inherited methods as well
+
+//    @Before("in.anurag.crudSpingBootDemo.aspect.ApplicationPointcuts.publicServiceMethod()")
+//    @Before("args(in.anurag.crudSpingBootDemo.dto.CreateSchoolDTO) && within(in.anurag.crudSpingBootDemo.service..*)")
+
+    // I've added timestamp annotation on CreateSchoolDTO class
+//    @Before("@args(jdk.jfr.Timestamp) && within(in.anurag.crudSpingBootDemo.service..*)")
+
+    // added annotation on schoolService method
+    @Before("@annotation(jdk.jfr.Timestamp)")
     public void logBeforeMethod(){
         System.out.println("School is going to be created from aspect using pointcuts");
     }
+
+//    @Around("@annotation(in.anurag.crudSpingBootDemo.annotation.TrackExecutionTime)")
+    //binding form
+    @Around("@annotation(trackExecutionTime)")
+    public Object measureExecutionTime(ProceedingJoinPoint joinPoint, TrackExecutionTime trackExecutionTime){
+        long startTime = System.currentTimeMillis();
+        try{
+            return joinPoint.proceed();
+        } catch (Throwable e) {
+            throw new RuntimeException(e);
+        }finally {
+            long end = System.currentTimeMillis();
+            long duration = end-startTime;
+            String operation = trackExecutionTime.operation();
+            if(operation.isBlank()){
+                operation = joinPoint.getSignature().getName();
+            }
+            long warningThreshold = trackExecutionTime.warnAfter();
+            if(duration>=warningThreshold){
+                System.out.println("SLOW OPERATION ALERT : Time take by "+ operation+", duration  :  "+duration);
+
+            }else{
+                System.out.println("Time take by "+ operation+", duration  :  "+duration);
+            }
+
+        }
+    }
+
     @AfterReturning(value = "execution(* in.anurag.crudSpingBootDemo.service.SchoolService.createSchool(..))", returning = "result")
     public void logAfterReturningMethod(JoinPoint joinPoint, CreateSchoolDTO result){
         Object[] args = joinPoint.getArgs();
@@ -44,6 +83,7 @@ public class LoggingAspect {
         result.setAge(244);
         System.out.println("Aspect logAfterReturningMethod is called with this args "+result);
     }
+
     @AfterThrowing(value = "execution(* in.anurag.crudSpingBootDemo.service.SchoolService.createSchool(..))", throwing = "exception")
     public void logAfterThrowMethod(Exception exception){
         String message = exception.getMessage();

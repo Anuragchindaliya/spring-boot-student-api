@@ -1,7 +1,9 @@
 package in.anurag.crudSpingBootDemo.dto;
 
 import jakarta.validation.constraints.*;
+import jdk.jfr.Timestamp;
 
+@Timestamp
 public class CreateSchoolDTO {
     @NotBlank(message = "Name cannot be null/Empty or blank")
     @Size(min = 2,max=50,message = "Student name must be within 2 to 50 character long")
