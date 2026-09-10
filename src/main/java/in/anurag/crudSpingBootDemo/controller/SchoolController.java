@@ -1,6 +1,7 @@
 package in.anurag.crudSpingBootDemo.controller;
 
 import in.anurag.crudSpingBootDemo.dto.CreateSchoolDTO;
+import in.anurag.crudSpingBootDemo.dto.CreateSchoolResponseDTO;
 import in.anurag.crudSpingBootDemo.service.SchoolService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,4 +25,10 @@ public class SchoolController {
         String message = schoolService.dummyMethod(s);
         return ResponseEntity.ok(message);
     }
+    @GetMapping("/{id}")
+    public ResponseEntity<CreateSchoolResponseDTO> getSchoolById(@PathVariable Long id){
+        CreateSchoolResponseDTO schoolResponseDTO = schoolService.getSchoolById(id);
+        return ResponseEntity.ok(schoolResponseDTO);
+    }
+
 }

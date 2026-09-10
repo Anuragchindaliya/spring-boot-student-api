@@ -13,6 +13,35 @@ public class CreateSchoolDTO {
     @Min(value = 18,message = "Student must be atleast 18 years old")
     private int age;
 
+    private String email;
+
+    private int rollNo;
+
+    private String subject;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public int getRollNo() {
+        return rollNo;
+    }
+
+    public void setRollNo(int rollNo) {
+        this.rollNo = rollNo;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
 
     public String getName() {
         return name;
