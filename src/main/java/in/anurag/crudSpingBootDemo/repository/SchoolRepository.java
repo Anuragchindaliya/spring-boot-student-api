@@ -23,7 +23,7 @@ public class SchoolRepository {
         return entityManager.find(School.class,id);
     }
 
-    public void remove(Long id){
-         entityManager.remove(id);
+    public void remove(School school){
+         entityManager.remove(school);
     }
 }

@@ -7,6 +7,7 @@ import in.anurag.crudSpingBootDemo.dto.CreateStudentRequestDTO;
 import in.anurag.crudSpingBootDemo.dto.UpdateStudentResponseDTO;
 import in.anurag.crudSpingBootDemo.entity.School;
 import in.anurag.crudSpingBootDemo.entity.Student;
+import in.anurag.crudSpingBootDemo.exception.ResourceNotFoundException;
 import in.anurag.crudSpingBootDemo.repository.SchoolRepository;
 import in.anurag.crudSpingBootDemo.repository.StudentRepository;
 import jakarta.transaction.Transactional;
@@ -38,22 +39,32 @@ public class SchoolService {
 
     public CreateSchoolResponseDTO getSchoolById (Long id){
         School school = schoolRepository.findById(id);
+        System.out.println("school service is started"+school);
+        if(school == null){
+            throw new ResourceNotFoundException("School not found");
+        }
+
         CreateSchoolResponseDTO schoolResponseDTO = mapToUpdateDto(school);
         return schoolResponseDTO;
     }
-//    @Timestamp
-    @TrackExecutionTime(warnAfter = 1000, operation = "Run Dummy method")
-    public String dummyMethod(String s){
-        String m = "dummyMethod is called from service";
-        try{
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        System.out.println(m);
-//        throw new RuntimeException("Some error occurred");
-        return s;
+
+    // when I used Transactional annotation school.setName worked, I don't need to call save method from repository
+    @Transactional
+    public void updateSchoolById (CreateSchoolDTO schoolDTO, Long id){
+        School school = schoolRepository.findById(id);
+        school.setName(schoolDTO.getName());
+        school.setAge(schoolDTO.getAge());
+        school.setEmail(schoolDTO.getEmail());
+        System.out.println(("student updated"));
     }
+
+    @Transactional
+    public void deleteSchool(Long id){
+        School school = schoolRepository.findById(id);
+        schoolRepository.remove(school);
+    }
+
+
 
     private School mapToEntity(CreateSchoolDTO schoolReq){
         School school = new School();
@@ -75,5 +86,19 @@ public class SchoolService {
         studentRes.setMessage("School details updated successfully");
         studentRes.setUpdatedAt(schoolReq.getUpdatedAt());
         return studentRes;
+    }
+
+    //    @Timestamp
+    @TrackExecutionTime(warnAfter = 1000, operation = "Run Dummy method")
+    public String dummyMethod(String s){
+        String m = "dummyMethod is called from service";
+        try{
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println(m);
+//        throw new RuntimeException("Some error occurred");
+        return s;
     }
 }

@@ -27,8 +27,23 @@ public class SchoolController {
     }
     @GetMapping("/{id}")
     public ResponseEntity<CreateSchoolResponseDTO> getSchoolById(@PathVariable Long id){
+        System.out.println("controller started");
         CreateSchoolResponseDTO schoolResponseDTO = schoolService.getSchoolById(id);
+        System.out.println("controoler"+schoolResponseDTO);
         return ResponseEntity.ok(schoolResponseDTO);
+    }
+
+
+    @PutMapping("/{id}")
+    public ResponseEntity<String> updateSchoolById(@RequestBody CreateSchoolDTO school, @PathVariable Long id){
+        schoolService.updateSchoolById(school, id);
+        return ResponseEntity.ok("School updated successfully");
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteSchoolById(@PathVariable Long id){
+        schoolService.deleteSchool(id);
+        return ResponseEntity.ok("School deleted successfully");
     }
 
 }
