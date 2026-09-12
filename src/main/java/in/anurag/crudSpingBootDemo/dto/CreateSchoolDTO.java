@@ -1,7 +1,12 @@
 package in.anurag.crudSpingBootDemo.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import in.anurag.crudSpingBootDemo.model.StudentStatus;
 import jakarta.validation.constraints.*;
 import jdk.jfr.Timestamp;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Timestamp
 public class CreateSchoolDTO {
@@ -18,6 +23,68 @@ public class CreateSchoolDTO {
     private int rollNo;
 
     private String subject;
+
+    private String profileDescription;
+
+    private StudentStatus studentStatus;
+
+    @JsonProperty("isMonitor")
+    private Boolean isMonitor;
+
+    private LocalDate dateOfBirth;
+
+    private BigDecimal percentage;
+
+    private String displayName;
+
+    public String getDisplayName() {
+        return displayName;
+    }
+
+    public String getProfileDescription() {
+        return profileDescription;
+    }
+
+    public void setProfileDescription(String profileDescription) {
+        this.profileDescription = profileDescription;
+    }
+
+    public StudentStatus getStudentStatus() {
+        return studentStatus;
+    }
+
+    public void setStudentStatus(StudentStatus studentStatus) {
+        this.studentStatus = studentStatus;
+    }
+
+    public Boolean getMonitor() {
+        return isMonitor;
+    }
+
+    public void setMonitor(Boolean monitor) {
+        isMonitor = monitor;
+    }
+
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
+    }
+
+    public BigDecimal getPercentage() {
+        return percentage;
+    }
+
+    public void setPercentage(BigDecimal percentage) {
+        this.percentage = percentage;
+    }
+
 
     public String getEmail() {
         return email;

@@ -20,27 +20,28 @@ import java.time.LocalDateTime;
 public class SchoolService {
     private final SchoolRepository schoolRepository;
 
-    public SchoolService(SchoolRepository schoolRepository){
-         this.schoolRepository = schoolRepository;
+    public SchoolService(SchoolRepository schoolRepository) {
+        this.schoolRepository = schoolRepository;
     }
 
     @Transactional
-    public CreateSchoolDTO createSchool(CreateSchoolDTO schoolDTO){
+    public CreateSchoolDTO createSchool(CreateSchoolDTO schoolDTO) {
         School school = mapToEntity(schoolDTO);
         LocalDateTime date = LocalDateTime.now();
         school.setCreatedAt(date);
         school.setUpdatedAt(date);
+        school.setDeleted(false);
         schoolRepository.save(school);
         String m = "School is created";
         System.out.println(m);
-//        throw new RuntimeException("Some error occurred");
+        // throw new RuntimeException("Some error occurred");
         return schoolDTO;
     }
 
-    public CreateSchoolResponseDTO getSchoolById (Long id){
+    public CreateSchoolResponseDTO getSchoolById(Long id) {
         School school = schoolRepository.findById(id);
-        System.out.println("school service is started"+school);
-        if(school == null){
+        System.out.println("school service is started" + school);
+        if (school == null) {
             throw new ResourceNotFoundException("School not found");
         }
 
@@ -48,9 +49,10 @@ public class SchoolService {
         return schoolResponseDTO;
     }
 
-    // when I used Transactional annotation school.setName worked, I don't need to call save method from repository
+    // when I used Transactional annotation school.setName worked, I don't need to
+    // call save method from repository
     @Transactional
-    public void updateSchoolById (CreateSchoolDTO schoolDTO, Long id){
+    public void updateSchoolById(CreateSchoolDTO schoolDTO, Long id) {
         School school = schoolRepository.findById(id);
         school.setName(schoolDTO.getName());
         school.setAge(schoolDTO.getAge());
@@ -59,23 +61,28 @@ public class SchoolService {
     }
 
     @Transactional
-    public void deleteSchool(Long id){
+    public void deleteSchool(Long id) {
         School school = schoolRepository.findById(id);
         schoolRepository.remove(school);
     }
 
-
-
-    private School mapToEntity(CreateSchoolDTO schoolReq){
+    private School mapToEntity(CreateSchoolDTO schoolReq) {
         School school = new School();
         school.setName(schoolReq.getName());
         school.setAge(schoolReq.getAge());
         school.setEmail(schoolReq.getEmail());
         school.setRollNo(schoolReq.getRollNo());
         school.setSubject(schoolReq.getSubject());
+        school.setDateOfBirth(schoolReq.getDateOfBirth());
+        school.setPercentage(schoolReq.getPercentage());
+        school.setStudentStatus(schoolReq.getStudentStatus());
+        school.setProfileDescription(schoolReq.getProfileDescription());
+        school.setMonitor(schoolReq.getMonitor());
+
         return school;
     }
-    private CreateSchoolResponseDTO mapToUpdateDto(School schoolReq){
+
+    private CreateSchoolResponseDTO mapToUpdateDto(School schoolReq) {
         CreateSchoolResponseDTO studentRes = new CreateSchoolResponseDTO();
         studentRes.setId(schoolReq.getId());
         studentRes.setName(schoolReq.getName());
@@ -85,20 +92,27 @@ public class SchoolService {
         studentRes.setSubject(schoolReq.getSubject());
         studentRes.setMessage("School details updated successfully");
         studentRes.setUpdatedAt(schoolReq.getUpdatedAt());
+        studentRes.setProfileDescription(schoolReq.getProfileDescription());
+        studentRes.setDateOfBirth(schoolReq.getDateOfBirth());
+        studentRes.setDisplayName(schoolReq.getDisplayName());
+        studentRes.setMonitor(schoolReq.getMonitor());
+        studentRes.setPercentage(schoolReq.getPercentage());
+        studentRes.setStudentStatus(schoolReq.getStudentStatus());
+        studentRes.setCreatedAt(schoolReq.getCreatedAt());
         return studentRes;
     }
 
-    //    @Timestamp
+    // @Timestamp
     @TrackExecutionTime(warnAfter = 1000, operation = "Run Dummy method")
-    public String dummyMethod(String s){
+    public String dummyMethod(String s) {
         String m = "dummyMethod is called from service";
-        try{
+        try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
         System.out.println(m);
-//        throw new RuntimeException("Some error occurred");
+        // throw new RuntimeException("Some error occurred");
         return s;
     }
 }
