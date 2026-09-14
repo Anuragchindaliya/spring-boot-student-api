@@ -1,9 +1,8 @@
 package in.anurag.crudSpingBootDemo.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 
@@ -19,7 +18,10 @@ public class Student {
     private int rollNo;
     private String subject;
     private Boolean deleted;
+//    @Column(columnDefinition = Tim)
+    @CreationTimestamp
     private LocalDateTime createdAt;
+    @UpdateTimestamp
     private LocalDateTime updatedAt;
 
     public LocalDateTime getCreatedAt() {

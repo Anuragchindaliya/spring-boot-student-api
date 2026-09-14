@@ -27,9 +27,10 @@ public class SchoolService {
     @Transactional
     public CreateSchoolDTO createSchool(CreateSchoolDTO schoolDTO) {
         School school = mapToEntity(schoolDTO);
-        LocalDateTime date = LocalDateTime.now();
-        school.setCreatedAt(date);
-        school.setUpdatedAt(date);
+        // using CreationTimestamp and UpdateTimestamp annotation I don't need to set Date time manually
+//        LocalDateTime date = LocalDateTime.now();
+//        school.setCreatedAt(date);
+//        school.setUpdatedAt(date);
         school.setDeleted(false);
         schoolRepository.save(school);
         String m = "School is created";
