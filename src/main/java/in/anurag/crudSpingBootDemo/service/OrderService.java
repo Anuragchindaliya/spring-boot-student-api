@@ -17,7 +17,7 @@ public class OrderService {
         this.paymentAuditService = paymentAuditService;
     }
 
-//    @Transactional
+    @Transactional
     public void placeOrder(Order order) {
         orderRepository.save(order);
 

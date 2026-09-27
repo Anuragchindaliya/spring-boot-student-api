@@ -7,9 +7,11 @@ import in.anurag.crudSpingBootDemo.dto.UpdateStudentResponseDTO;
 import in.anurag.crudSpingBootDemo.service.StudentService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/api/students")
@@ -54,5 +56,10 @@ public class StudentController {
     public ResponseEntity<String> deleteStudentSoftly(@PathVariable Long id){
        studentService.deleteStudentSoftly(id);
        return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/csrf")
+    public CsrfToken getCsrfToken(CsrfToken csrfToken){
+        return  csrfToken;
     }
 }
