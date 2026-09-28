@@ -5,8 +5,11 @@ import in.anurag.crudSpingBootDemo.entity.User;
 import in.anurag.crudSpingBootDemo.exception.ResourceNotFoundException;
 import in.anurag.crudSpingBootDemo.repository.DepartmentRepository;
 import in.anurag.crudSpingBootDemo.repository.UserRepository;
+import jakarta.persistence.Query;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class UserService {
@@ -26,8 +29,12 @@ public class UserService {
         user.setDepartment(department);
         department.getUserList().add(user);
 //        Department department = departmentRepository.getDepartmentById()
-        userRepository.createUser(user);
+        userRepository.save(user);
 
+    }
+
+    public List<User> getUsers (){
+        return userRepository.findAll();
     }
 
     @Transactional
@@ -38,7 +45,7 @@ public class UserService {
         user.setDepartment(department);
 //        department.getUserList().add(user);
         departmentRepository.save(department);
-        userRepository.createUser(user);
+        userRepository.save(user);
 
     }
 }
