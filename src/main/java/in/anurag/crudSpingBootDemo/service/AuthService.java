@@ -2,19 +2,26 @@ package in.anurag.crudSpingBootDemo.service;
 
 import in.anurag.crudSpingBootDemo.dto.UserRegisterRequestDto;
 import in.anurag.crudSpingBootDemo.dto.UserRegisterResponseDto;
+import in.anurag.crudSpingBootDemo.entity.Role;
 import in.anurag.crudSpingBootDemo.entity.User;
+import in.anurag.crudSpingBootDemo.repository.RoleRepository;
 import in.anurag.crudSpingBootDemo.repository.UserRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.Option;
+import java.util.Optional;
+
 @Service
 public class AuthService {
     private  UserRepository userRepository;
+    private RoleRepository roleRepository;
     private  PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-    public AuthService(UserRepository userRepository){
+    public AuthService(UserRepository userRepository,RoleRepository roleRepository){
         this.userRepository = userRepository;
+        this.roleRepository = roleRepository;
 //        this.passwordEncoder = passwordEncoder;
     }
 
@@ -28,6 +35,11 @@ public class AuthService {
         String encodedPassword = passwordEncoder.encode(registerRequestDto.getPassword());
         user.setPassword(encodedPassword);
         user.setEnabled(true);
+
+        Role role = roleRepository.findByName("ROLE_USER").get();
+
+        user.getRoles().add(role);
+
         userRepository.save(user);
 
 
@@ -35,5 +47,15 @@ public class AuthService {
         userRegisterResponseDto.setUsername(userName);
         userRegisterResponseDto.setMessage("User saved successfully");
         return userRegisterResponseDto;
+    }
+    public Boolean login(UserRegisterRequestDto registerRequestDto){
+
+        Optional<User> userOptional = userRepository.findByUsername(registerRequestDto.getUsername());
+        User user = userOptional.get();
+
+        return passwordEncoder.matches(registerRequestDto.getPassword(),user.getPassword());
+
+
+
     }
 }

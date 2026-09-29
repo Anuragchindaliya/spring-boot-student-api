@@ -32,6 +32,12 @@ public class UserController {
         UserRegisterResponseDto userRegisterResponseDto = authService.register(user);
         return ResponseEntity.ok(userRegisterResponseDto);
     }
+    @PostMapping("/login")
+    public ResponseEntity<Boolean> login(@RequestBody UserRegisterRequestDto user){
+
+        Boolean isLogged = authService.login(user);
+        return ResponseEntity.ok(isLogged);
+    }
 
     @PostMapping("/with")
     public ResponseEntity<String> createUserWithDepartment(@RequestBody User user, @RequestParam String departmentName){
