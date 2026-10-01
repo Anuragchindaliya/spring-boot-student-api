@@ -29,6 +29,7 @@ public class User {
 
     private boolean enabled = true;
 
+    //many to many by default load lazily
     @ManyToMany
     @JoinTable(
             name = "user_roles",

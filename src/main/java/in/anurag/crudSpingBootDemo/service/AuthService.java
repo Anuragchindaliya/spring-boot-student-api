@@ -9,6 +9,7 @@ import in.anurag.crudSpingBootDemo.repository.UserRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.swing.text.html.Option;
 import java.util.Optional;
@@ -17,12 +18,12 @@ import java.util.Optional;
 public class AuthService {
     private  UserRepository userRepository;
     private RoleRepository roleRepository;
-    private  PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+    private  PasswordEncoder passwordEncoder ;
 
-    public AuthService(UserRepository userRepository,RoleRepository roleRepository){
+    public AuthService(UserRepository userRepository,RoleRepository roleRepository,PasswordEncoder passwordEncoder){
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
-//        this.passwordEncoder = passwordEncoder;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public UserRegisterResponseDto register(UserRegisterRequestDto registerRequestDto){

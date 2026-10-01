@@ -20,6 +20,11 @@ public class UserController {
         this.authService = authService;
     }
 
+    @GetMapping("/hello")
+    public String sayHello() {
+        return "Hello";
+    }
+
     @PostMapping
     public ResponseEntity<String> createUser(@RequestBody User user, @RequestParam Long id){
 
