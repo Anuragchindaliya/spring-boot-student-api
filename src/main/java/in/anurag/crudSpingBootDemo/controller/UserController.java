@@ -6,6 +6,7 @@ import in.anurag.crudSpingBootDemo.entity.User;
 import in.anurag.crudSpingBootDemo.service.AuthService;
 import in.anurag.crudSpingBootDemo.service.UserService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,8 +22,8 @@ public class UserController {
     }
 
     @GetMapping("/hello")
-    public String sayHello() {
-        return "Hello";
+    public String sayHello(Authentication authentication) {
+        return "Hello, you are logged in as : " + authentication.getName();
     }
 
     @PostMapping
