@@ -17,7 +17,7 @@ The project contains a fully-functional **Student CRUD REST API** built with a 3
 
 ## 📚 Curriculum Roadmap & Code Mapping
 
-Below is the complete 18-part curriculum map. Use this table to jump directly to the detailed conceptual notes or check the actual code implementation in this repository.
+Below is the complete 21-part curriculum map. Use this table to jump directly to the detailed conceptual notes or check the actual code implementation in this repository.
 
 | Course Video / Concept | Detailed Conceptual Notes | Real-world Code Implementation |
 | :--- | :--- | :--- |
@@ -40,6 +40,25 @@ Below is the complete 18-part curriculum map. Use this table to jump directly to
 | **#17 Exception Handling** | [10_dtos_validation_exception_handling.md](notes/10_dtos_validation_exception_handling.md) | [GlobalExceptionHandler.java](src/main/java/in/anurag/crudSpingBootDemo/exception/GlobalExceptionHandler.java) |
 | **#18 Profiles & YAML Configurations** | [11_profiles_yaml.md](notes/11_profiles_yaml.md) | Dev/Prod `@Profile` in [NotificationServiceImpl.java](src/main/java/in/anurag/crudSpingBootDemo/service/NotificationServiceImpl.java) |
 | **#19 Filters & FilterChain** | [12_filters_and_filter_chain.md](notes/12_filters_and_filter_chain.md) | Standard Servlet Container Filter chains |
+| **#20 Filters: Modify Request & Response** | [13_filters_modifying_request_response_wrappers.md](notes/13_filters_modifying_request_response_wrappers.md) | `HttpServletRequestWrapper` & `ContentCachingResponseWrapper` |
+| **#21 Spring Boot Interceptors** | [14_spring_boot_interceptors.md](notes/14_spring_boot_interceptors.md) | `HandlerInterceptor` (`preHandle`, `postHandle`, `afterCompletion`) |
+| **#22 Spring AOP Core & Proxies** | [15_spring_aop_cross_cutting_concerns.md](notes/15_spring_aop_cross_cutting_concerns.md) | Cross-cutting concerns & Runtime AOP Proxies |
+| **#23 Spring AOP Advice Types** | [16_spring_aop_advices.md](notes/16_spring_aop_advices.md) | `@Before`, `@AfterReturning`, `@AfterThrowing`, `@After`, `@Around` |
+| **#24 Pointcuts & Proxy Types** | [17_spring_aop_pointcuts_proxy_types.md](notes/17_spring_aop_pointcuts_proxy_types.md) | AspectJ Pointcuts, JDK Dynamic Proxy vs CGLIB |
+| **#25 Custom Annotations in AOP** | [18_custom_annotations_spring_aop.md](notes/18_custom_annotations_spring_aop.md) | `@annotation` binding & declarative method interception |
+| **#26 JDBC from Scratch (CRUD)** | [19_jdbc_fundamentals_scratch.md](notes/19_jdbc_fundamentals_scratch.md) | Raw JDBC, `PreparedStatement`, SQL Injection prevention |
+| **#27 Spring JDBC & HikariCP** | [20_spring_jdbc_jdbctemplate_hikaricp.md](notes/20_spring_jdbc_jdbctemplate_hikaricp.md) | `JdbcTemplate`, Connection Pooling & `RowMapper` |
+| **#28 Hibernate & Entity Mapping** | [21_hibernate_fundamentals_entity_mapping.md](notes/21_hibernate_fundamentals_entity_mapping.md) | `@Entity`, `@Table`, `@Id`, `@GeneratedValue`, `ddl-auto` |
+| **#29 Hibernate Internals & L1 Cache** | [22_hibernate_internals_persistence_context_l1_cache.md](notes/22_hibernate_internals_persistence_context_l1_cache.md) | Persistence Context, L1 Cache & Dirty Checking |
+| **#30 JPA Relationships** | [23_jpa_relationships_mappings.md](notes/23_jpa_relationships_mappings.md) | `@OneToMany`, `@ManyToOne`, `@OneToOne`, `@ManyToMany` & `mappedBy` |
+| **#31 Cascading, Lazy Loading & N+1** | [24_jpa_cascading_lazy_loading_n_plus_one.md](notes/24_jpa_cascading_lazy_loading_n_plus_one.md) | `CascadeType`, `FetchType.LAZY`, `@EntityGraph` & `JOIN FETCH` |
+| **#32 Master Spring Data JPA** | [25_spring_data_jpa_jpql_pagination.md](notes/25_spring_data_jpa_jpql_pagination.md) | `JpaRepository`, JPQL, Native SQL & `Pageable` Pagination |
+| **#33 Spring Transactions & ACID** | [26_spring_transactions_acid_commit_rollback.md](notes/26_spring_transactions_acid_commit_rollback.md) | `@Transactional`, ACID guarantees & rollback rules |
+| **#34 Propagation & Isolation Levels** | [27_transaction_propagation_isolation_levels.md](notes/27_transaction_propagation_isolation_levels.md) | `REQUIRED` vs `REQUIRES_NEW`, Isolation anomalies |
+| **#35 Spring Security Architecture** | [28_spring_security_core_architecture.md](notes/28_spring_security_core_architecture.md) | `SecurityContextHolder`, FilterChainProxy & SecurityConfig |
+| **#36 DB Auth & Password Security** | [29_spring_security_db_auth_password_encoding.md](notes/29_spring_security_db_auth_password_encoding.md) | `UserDetailsService`, `UserDetails` & `BCryptPasswordEncoder` |
+| **#37 Security Login Flow Internals** | [30_spring_security_authentication_internals.md](notes/30_spring_security_authentication_internals.md) | `AuthenticationManager`, `DaoAuthenticationProvider` flow |
+| **#38 Spring JWT Stateless Security** | [31_spring_security_jwt_stateless.md](notes/31_spring_security_jwt_stateless.md) | JWT Anatomy, `JwtAuthenticationFilter` & Stateless APIs |
 
 ---
 

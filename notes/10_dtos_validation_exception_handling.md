@@ -60,7 +60,30 @@ public ResponseEntity<CreateStudentResponseDTO> createStudent(@Valid @RequestBod
     ...
 }
 ```
-If validation fails, Spring Boot automatically throws a `MethodArgumentNotValidException`.
+### Validation & Global Exception Flow Diagram
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor Client
+    participant DS as DispatcherServlet
+    participant V as Jakarta Validator (@Valid)
+    participant C as StudentController
+    participant GEH as GlobalExceptionHandler (@RestControllerAdvice)
+
+    Client->>DS: POST /api/students (Invalid JSON Body)
+    DS->>V: Inspect payload against DTO constraints
+    alt Validation Fails
+        V-->>DS: Throws MethodArgumentNotValidException
+        DS->>GEH: Intercept exception via @ExceptionHandler
+        GEH-->>DS: ValidationExceptionResponseDto (400 Bad Request)
+        DS-->>Client: 400 Bad Request {fieldErrors: {...}}
+    else Validation Succeeds
+        V->>C: Invoke createStudent(validDTO)
+        C-->>DS: 201 Created (CreateStudentResponseDTO)
+        DS-->>Client: 201 Created
+    end
+```
 
 ---
 

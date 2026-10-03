@@ -17,7 +17,33 @@ In our codebase:
 - [application.properties](../src/main/resources/application.properties): Contains global defaults.
 - [application-dev.properties](../src/main/resources/application-dev.properties): Database credentials and logging configurations for local development.
 - [application-staging.properties](../src/main/resources/application-staging.properties): Staging environment database configuration.
-- [application-prod.properties](../src/main/resources/application-prod.properties): Secure PostgreSQL database connections and optimized pool configurations for production.
+### Profile Loading & Override Hierarchy
+
+```mermaid
+graph TD
+    Base[application.properties / application.yml<br/>Global Defaults]
+    
+    subgraph Active Profile Selection
+        Env[OS Environment Variable: SPRING_PROFILES_ACTIVE]
+        JVM[JVM Argument: -Dspring.profiles.active=prod]
+        Prop[Config: spring.profiles.active=dev]
+    end
+    
+    subgraph Profile-Specific Override
+        Dev[application-dev.properties<br/>H2/Local DB, Debug Logs]
+        Staging[application-staging.properties<br/>Staging DB, Info Logs]
+        Prod[application-prod.properties<br/>PostgreSQL Cluster, Warn Logs]
+    end
+
+    subgraph Bean Selection (@Profile)
+        BeanDev[DummyNotificationServiceImpl<br/>@Profile dev, staging]
+        BeanProd[NotificationServiceImpl<br/>@Profile prod]
+    end
+
+    Active Profile Selection -->|Overrides| Base
+    JVM -->|Selects 'prod'| Prod
+    Prod -->|Injects Bean| BeanProd
+```
 
 ### Activating Profiles
 You can activate profiles in several ways:
